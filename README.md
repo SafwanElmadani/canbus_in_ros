@@ -13,16 +13,10 @@ $ catkin_make
 ```
 2.Clone the repos.
 
-**Installing libpanda**
-```
-$ cd ~/catkin_ws/
-$ git clone https://github.com/jmscslgroup/libpanda.git  
-$ #Follow the installation guide on https://github.com/jmscslgroup/libpanda
-```
 **Cloning the ROS package**
 ```
 $ cd ~/catkin_ws/src/
-$ git clone https://github.com/SafwanElmadani/can_to_ros.git
+$ git clone https://github.com/SafwanElmadani/canbus_in_ros.git
 ```
 3.Build the WS
 ```
@@ -37,17 +31,7 @@ $source ./devel/setup.bash
 
 Use roslaunch to start publishing:
 ```
-$roslaunch can_to_ros start_can_decoding.launch can_path:=/path/to/file.csv bag_name:= name_of_the_bag_file.
+$roslaunch canbus_in_ros start_can_decoding.launch can_path:=/path/to/file.csv bag_name:= name_of_the_bag_file.
 
 The generated bag file can be found inside the home directory.
 ```
-**Publishing in real time (Needs to be updated)**
-
-Use roslaunch to start publishing:
-<pre>
-$roslaunch can_to_ros piping.launch bag_name:= name_of_the_bag_file.
-
-This launch file will create file inside the home directory named <b>can_data.csv</b>, and then it will pipe the data written to that file to a ros node that handles publishing raw data. 
-
-The generated bag file can be found inside the home directory.
-</pre>
