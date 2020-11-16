@@ -1,0 +1,29 @@
+<launch>
+<arg name="csv_path" default ="/media/sf_sfwithVM/cyverse/minitest3/2020_10_13/2020-10-13-13-20-53-ID2.csv" />
+
+
+<!-- <arg name="gps_path" /> -->
+<!-- <arg name="bag_name" /> -->
+
+<group ns="catvehicle">
+
+<param name="robot_description"
+         command="$(find xacro)/xacro '$(find canbus_in_ros)/urdf/catvehicle.xacro' roboname:='catvehicle'" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+
+<!-- <include file="$(find canbus_in_ros)/launch/catvehicle.launch">
+    <arg name="robot_name" value="catvehicle"/>
+    <arg name="init_pose" value="-x 1 -y 1 -z 0"/>
+    <arg name="config_file" value="catvehicle_control.yaml"/>
+</include> -->
+
+
+</group>
+
+<node pkg="canbus_in_ros" type ="publish_csv" name="publish_csv" args="$(arg csv_path)" output="screen"  /> 
+<node pkg="canbus_in_ros" type ="subs" name="subs" output="screen" /> 
+
+</launch>
