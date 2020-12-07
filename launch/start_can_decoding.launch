@@ -1,6 +1,6 @@
 <launch>
 
-<arg name="can_path" default = "/media/sf_sfwithVM/cyverse/minitest3/2020_10_13/2020-10-13-13-20-53-ID2.csv" />
+<arg name="can_path" default = "/media/sf_sfwithVM/cyverse/2020-07-08/2020-07-08-13-15-02_5FNYF6H05HB089022_CAN_Messages.csv" />
 <!-- <arg name="gps_path" /> -->
 <!-- <arg name="bag_name" /> -->
 
@@ -8,12 +8,12 @@
 
 
 <node pkg="canbus_in_ros" type ="publish_csv" name="publish_csv" args="$(arg can_path)" output="screen"  /> 
-<node pkg="canbus_in_ros" type ="subs" name="subs" output="screen" /> 
+<!-- <node pkg="canbus_in_ros" type ="subs" name="subs" output="screen" />  -->
 
 
 <!-- <node pkg="can_to_ros" type ="gpsfix" name="gpsfix" args="$(arg gps_path)"  />  -->
 
-<!-- <node pkg="can_to_ros" name="listener" type="listener.py" output="screen" /> -->
+<node pkg="canbus_in_ros" name="de_honda" type="de_honda.py" output="screen" />
 
 <!-- <node pkg="can_to_ros" type ="can_coach_subs.py" name="can_coach_subs" output="screen"  /> -->
 
